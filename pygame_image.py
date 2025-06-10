@@ -17,7 +17,8 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
+        screen.blit(bg_img, [0, 0]) #背景画像のblit
+        screen.blit(kk_img, [300, 200]) #こうかとん画像のblit
         pg.display.update()
         tmr += 1        
         clock.tick(10)
