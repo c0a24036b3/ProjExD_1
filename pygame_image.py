@@ -19,16 +19,18 @@ def main():
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
+        rctx=0
+        rcty=0
         key_lst = pg.key.get_pressed()
-        kk_rct.move_ip(-1,0) #常に風に流れるようにする
         if key_lst[pg.K_UP]: #上移動
-            kk_rct.move_ip((0,-1))
+            rctx=-1
         if key_lst[pg.K_DOWN]: #下移動
-            kk_rct.move_ip((0,1))
+            rctx=1
         if key_lst[pg.K_LEFT]: #左移動
-            kk_rct.move_ip((-1,0))
+            rcty=-1
         if key_lst[pg.K_RIGHT]: #右移動
-            kk_rct.move_ip((2,0))
+            rcty=2
+        kk_rct.move_ip(rcty-1,rctx) #こうかとんを移動させる
 
         x=tmr%3200 #3200フレーム後にもとに戻る（ループ）
         screen.blit(bg_img, [-x,0]) #背景画像のblit
