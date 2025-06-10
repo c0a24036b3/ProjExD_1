@@ -18,8 +18,10 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [-tmr,0]) #背景画像のblit
-        screen.blit(bg_img_f, [-tmr+1600,0])#背景画像を1600フレーム後にblit
+        x=tmr%3200 #3200フレーム後にもとに戻る（ループ）
+        screen.blit(bg_img, [-x,0]) #背景画像のblit
+        screen.blit(bg_img_f, [-x+1600,0])#背景画像を1600フレーム後にblit
+        screen.blit(bg_img, [-x+3200,0]) #背景画像を3200フレーム後にblit
         screen.blit(kk_img, [300, 200]) #こうかとん画像のblit
         pg.display.update()
         tmr += 1        
