@@ -18,6 +18,7 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [-tmr,0]) #背景画像のblit
+        screen.blit(bg_img, [-tmr+1600,0])#背景画像を800フレーム後にblit
         screen.blit(kk_img, [300, 200]) #こうかとん画像のblit
         pg.display.update()
         tmr += 1        
