@@ -10,6 +10,7 @@ def main():
     screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg") #背景画像のSurface
+    bg_img_f = pg.transform.flip(bg_img,True,False) #背景画像のSurface
     kk_img = pg.image.load("fig/3.png") #こうかとん画像のSurface
     kk_img = pg.transform.flip(kk_img,True,False) #こうかとん画像の左右反転
     tmr = 0
@@ -18,7 +19,7 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [-tmr,0]) #背景画像のblit
-        screen.blit(bg_img, [-tmr+1600,0])#背景画像を800フレーム後にblit
+        screen.blit(bg_img_f, [-tmr+1600,0])#背景画像を1600フレーム後にblit
         screen.blit(kk_img, [300, 200]) #こうかとん画像のblit
         pg.display.update()
         tmr += 1        
